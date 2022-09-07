@@ -23,36 +23,6 @@ func main() {
 	levelOrder(node)
 }
 
-// func levelOrder(root *Node) [][]int {
-// 	flag := false
-// 	array := make([][]int, 1)
-// 	i := 0
-// 	array[i] = make([]int, 1)
-// 	array[i][0] = root.Val
-// 	i++
-// 	if root != nil {
-// 		findChildren(root, flag, array, i)
-// 	}
-// 	return array
-// }
-
-// func findChildren(root *Node, flag bool, array [][]int, i int) {
-// 	numChildren := len(root.Children)
-// 	if numChildren > 0 && flag == false {
-// 		array = append(array, []int{})
-// 		flag = true
-// 	}
-// 	j := 0
-// 	for numChildren > 0 {
-// 		array[i] = append(array[i], root.Children[j].Val)
-// 		root = root.Children[j]
-// 		temp := i + 1
-// 		findChildren(root, flag, array, temp)
-// 		j++
-// 		numChildren--
-// 	}
-// }
-
 func levelOrder(root *Node) [][]int {
 	var res [][]int
 	var temp []int
