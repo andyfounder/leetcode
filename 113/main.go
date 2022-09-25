@@ -30,7 +30,7 @@ func main() {
 	node31.Val = 2
 	node36.Val = 5
 	node37.Val = 1
-	targetSum := 23
+	targetSum := 22
 	pathSum(node, targetSum)
 }
 
@@ -61,3 +61,47 @@ func dfs(root *TreeNode, targetSum int, res [][]int, stack []int) [][]int {
 	res = dfs(root.Right, targetSum, res, stack)
 	return res
 }
+
+// type pair struct {
+// 	node *TreeNode
+// 	sum  int
+// }
+
+// func pathSum(root *TreeNode, targetSum int) [][]int {
+// 	res := [][]int{}
+// 	if root == nil {
+// 		return res
+// 	}
+// 	tree := map[*TreeNode]*TreeNode{}
+// 	queue := []pair{{root, targetSum}}
+// 	getPath := func(node *TreeNode) []int {
+// 		path := []int{}
+// 		for ; node != nil; node = tree[node] {
+// 			path = append(path, node.Val)
+// 		}
+// 		for i, j := 0, len(path)-1; i < j; i++ {
+// 			path[i], path[j] = path[j], path[i]
+// 			j--
+// 		}
+// 		return path
+// 	}
+// 	for len(queue) > 0 {
+// 		q := queue[0]
+// 		node := q.node
+// 		sum := q.sum - node.Val
+// 		queue = queue[1:]
+// 		if node.Left == nil && node.Right == nil && sum == 0 {
+// 			res = append(res, getPath(node))
+// 		} else {
+// 			if node.Left != nil {
+// 				queue = append(queue, pair{node.Left, sum})
+// 				tree[node.Left] = node
+// 			}
+// 			if node.Right != nil {
+// 				queue = append(queue, pair{node.Right, sum})
+// 				tree[node.Right] = node
+// 			}
+// 		}
+// 	}
+// 	return res
+// }
